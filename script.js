@@ -15,28 +15,18 @@ document.querySelector("body").innerHTML += `hola ${userNameCap}`;
 function greatestProduct(matrix) {
   let maxMultiplicación = 0;
 
-  // console.log(matrix)
-
   for (let i = 0; i < matrix.length; i++) {
-    // let array = matrix[i]
-    // console.log(array)
     for (let j = 0; j < matrix[i].length; j++) {
-      // let numero = array[j]
 
-      if (matrix[i][j + 1] !== undefined) {
-        // console.log(matrix[i][j]);
-        console.log(matrix[i][j + 1]);
-
-        let multiplicaciónHorizontal =
-          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (j < matrix.length - 4) {
+        let multiplicaciónHorizontal = matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
         if (multiplicaciónHorizontal > maxMultiplicación) {
           maxMultiplicación = multiplicaciónHorizontal;
         }
       }
 
-      if (matrix[i + 1] !== undefined) {
-        let multiplicaciónVertical =
-          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (i < matrix.length - 4) {        
+        let multiplicaciónVertical = matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
         if (multiplicaciónVertical > maxMultiplicación) {
           maxMultiplicación = multiplicaciónVertical;
         }
@@ -45,16 +35,7 @@ function greatestProduct(matrix) {
   }
   return maxMultiplicación;
 }
-matrix = [
-  [1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 9, 9],
-  [1, 1, 1, 1, 1, 9, 9],
-];
-// console.log(greatestProduct(matrix))
+
 
 // OBJETOS
 
